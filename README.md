@@ -46,13 +46,22 @@ Trabalho de Conclusão de Curso apresentado ao Centro de Ciências Sociais Aplic
 
 ---
 
+## Modelagem
+
+- Regressão Logística (principal) e Random Forest, ambos com `class_weight='balanced'` para corrigir o leve desbalanceamento das classes (45,7% de vitórias vs. 54,3% de não vitórias)
+- Validação cruzada estratificada de 5 dobras (`StratifiedKFold`, `random_state=42`)
+- Métricas: ROC-AUC (principal), Acurácia, F1-Score e Brier Score (calibração)
+- Multicolinearidade verificada por VIF (todos abaixo de 2)
+
+---
+
 ## Principais resultados
 
 - `diff_weight` e `diff_age` apresentaram associação significativa com `home_win` (p < 0,001)
-- ROC-AUC global: **0,531** (Regressão Logística) — superior ao acaso, efeito fraco
+- ROC-AUC global: **≈ 0,532** (Regressão Logística) — superior ao acaso, efeito fraco
 - Efeito varia expressivamente entre ligas:
   - **Jupiler League e Premier League:** as três variáveis são significativas (AUC até 0,585)
-  - **La Liga e Portugal:** nenhuma variável significativa
+  - **La Liga:** nenhuma variável significativa
   - **Bundesliga e Eredivisie:** apenas `diff_age` significativa
 
 ---
@@ -79,4 +88,3 @@ Faça o download do arquivo `database.sqlite` em [kaggle.com/datasets/hugomathie
 Ferramentas de inteligência artificial foram utilizadas para correção ortográfica e gramatical do texto e para o aprimoramento visual dos gráficos. Todo o conteúdo analítico, as decisões metodológicas e a interpretação dos resultados são de inteira responsabilidade do autor.
 
 ---
-
